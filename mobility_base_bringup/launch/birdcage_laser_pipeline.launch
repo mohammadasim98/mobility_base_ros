@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ns" default="/laser_birdcage_r2000"/>
+
+  <group ns="$(arg ns)">
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan_filter" output="screen" respawn="true" >
+      <rosparam file="$(find mobility_base_bringup)/yaml/birdcage_laser_filter_params.yaml" command="load" />
+    </node>
+  </group>
+
+</launch>

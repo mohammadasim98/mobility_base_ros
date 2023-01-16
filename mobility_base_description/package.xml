@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mobility_base_description</name>
+  <version>1.0.6</version>
+  <description>
+    Description of Mobility Base Robot from Dataspeed Inc.
+    This package contains the URDF and meshes describing the Mobility Base.
+  </description>
+
+  <license>BSD</license>
+  <author>Dataspeed Inc.</author>
+  <maintainer email="khallenbeck@dataspeedinc.com">Dataspeed Inc.</maintainer>
+  <url type="website">http://dataspeedinc.com</url>
+  <url type="repository">https://bitbucket.org/dataspeedinc/mobility_base_ros</url>
+  <url type="bugtracker">https://bitbucket.org/dataspeedinc/mobility_base_ros/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>velodyne_description</exec_depend>
+
+</package>

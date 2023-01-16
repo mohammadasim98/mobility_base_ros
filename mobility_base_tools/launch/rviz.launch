@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="rviz" type="rviz" respawn="false" name="rviz" output="screen" args="-d $(find mobility_base_tools)/rviz/rviz.rviz" />
+
+</launch>

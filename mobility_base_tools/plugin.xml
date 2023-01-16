@@ -1,0 +1,12 @@
+<library path="src">
+  <class name="Diagnostic GUI" type="mobility_base_tools.diagnostic_gui.DiagnosticGui" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      An rqt plugin to visualize the status of the Baxter Mobility Base controller.
+    </description>
+    <qtgui>
+      <label>Mobility Base GUI</label>
+      <icon>images/icon.png</icon>
+      <statustip>Dataspeed Inc.</statustip>
+    </qtgui>
+  </class>
+</library>

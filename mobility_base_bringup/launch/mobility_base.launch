@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Mobility Base Driver -->
+  <include file="$(find mobility_base_bringup)/launch/mobility_base_driver.launch" />
+
+  <!-- Floor Camera -->
+  <group if="$(optenv MB_FLOOR_CAMERA 1)">
+    <include file="$(find mobility_base_bringup)/launch/floor_camera.launch" />
+  </group>
+
+  <!-- Front Laser -->
+  <group if="$(optenv MB_LASER_FRONT_HOKUYO 0)">
+    <include file="$(find mobility_base_bringup)/launch/laser_front_hokuyo.launch" />
+  </group>
+
+  <!-- Rear Laser -->
+  <group if="$(optenv MB_LASER_REAR_HOKUYO 0)">
+    <include file="$(find mobility_base_bringup)/launch/laser_rear_hokuyo.launch" />
+  </group>
+
+  <!-- Birdcage Laser R2000 -->
+  <group if="$(optenv MB_LASER_BIRDCAGE_R2000 0)">
+    <include file="$(find mobility_base_bringup)/launch/laser_birdcage_r2000.launch" />
+  </group>
+
+  <!-- Birdcage Laser VLP16 -->
+  <group if="$(optenv MB_LASER_BIRDCAGE_VLP16 0)">
+    <include file="$(find mobility_base_bringup)/launch/laser_birdcage_vlp16.launch" />
+  </group>
+
+</launch>

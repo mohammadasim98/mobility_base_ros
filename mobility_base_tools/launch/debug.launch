@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="image_view" type="image_view" name="image_view_floor_camera" respawn="false" output="screen" >
+    <remap from="image" to="/mobility_base/floor_camera/image_raw"/>
+  </node>
+
+  <include file="$(find mobility_base_tools)/launch/rviz.launch" />
+
+</launch>

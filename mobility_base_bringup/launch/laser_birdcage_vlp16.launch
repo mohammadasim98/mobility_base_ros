@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group ns="/laser_birdcage_vlp16">
+
+    <!-- Velodyne VLP16 Driver -->
+    <node pkg="nodelet" type="nodelet" name="nodelet" args="manager" respawn="true" output="screen"/>
+    <node pkg="nodelet" type="nodelet" name="driver" args="load velodyne_driver/DriverNodelet nodelet">
+      <param name="model" value="VLP16"/>
+      <param name="pcap" value=""/>
+      <param name="read_once" value="false"/>
+      <param name="read_fast" value="false"/>
+      <param name="repeat_delay" value="0.0"/>
+      <param name="rpm" value="600.0"/>
+      <param name="frame_id" value="/laser_birdcage_vlp16"/>
+      <param name="device_ip" value="$(optenv MB_LASER_BIRDCAGE_VLP16_IP)"/>
+    </node>
+    <node pkg="nodelet" type="nodelet" name="cloud" args="load velodyne_pointcloud/CloudNodelet nodelet">
+      <param name="calibration" value="$(find velodyne_pointcloud)/params/VLP16db.yaml"/>
+      <param name="min_range" value="0.3"/>
+      <param name="max_range" value="130.0"/>
+      <remap from="velodyne_points" to="points" />
+    </node>
+    <node pkg="nodelet" type="nodelet" name="filter" args="load mobility_base_pointcloud_filter/PointCloudFilterNodelet nodelet">
+      <param name="width" value="0.439822972"/>
+    </node>
+
+  </group>
+
+</launch>

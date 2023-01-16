@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Remove previous SDK
+if [ -e "$HOME/mobility_base_sdk/setup.bash" ]; then
+  echo 'Removing previous SDK folder...'
+  rm -rf $HOME/mobility_base_sdk
+fi
+if grep -Fxq "source ~/mobility_base_sdk/setup.bash" $HOME/.bashrc
+then
+  echo 'Removing previous SDK source from ~/.bashrc file...'
+  mv $HOME/.bashrc $HOME/.bashrc.bak
+  awk '!/source ~\/mobility_base_sdk\/setup\.bash/' $HOME/.bashrc.bak > $HOME/.bashrc
+  chown --reference=$HOME/.bashrc.bak $HOME/.bashrc
+fi

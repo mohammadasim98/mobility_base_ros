@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group ns="/laser_birdcage_r2000">
+
+    <!-- R2000 Driver -->
+    <node pkg="pepperl_fuchs_r2000" type="r2000_node" name="r2000_node" respawn="true" output="screen">
+      <param name="frame_id" value="laser_birdcage_r2000"/>
+      <param name="scanner_ip" value="$(optenv MB_LASER_BIRDCAGE_R2000_IP 192.168.20.251)"/>
+      <param name="scan_frequency" value="$(optenv MB_LASER_BIRDCAGE_R2000_FREQ 35)"/>
+      <param name="samples_per_scan" value="$(optenv MB_LASER_BIRDCAGE_R2000_SAMPLES 3600)"/>
+      <remap from="~/scan" to="scan" />
+    </node>
+
+    <!-- Laser filter to remove legs from scan -->
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan_filter" output="screen" respawn="true" >
+      <rosparam file="$(find mobility_base_bringup)/yaml/birdcage_laser_filter_params.yaml" command="load" />
+    </node>
+
+  </group>
+
+</launch>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="xacro_file" default="'$(find mobility_base_description)/urdf/mobility_base.urdf.xacro' gazebo:=false baxter:=false" />
+
+  <node pkg="mobility_base_tools" type="urdf_remove_pedestal.py" name="urdf_remove_pedestal" output="screen" />
+
+  <group ns="/mobility_base">
+
+    <!-- Driver -->
+    <node pkg="mobility_base_driver" type="driver_node" name="driver" respawn="true" output="screen">
+    </node>
+
+    <!-- Transforms -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg xacro_file)" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+
+  </group>
+
+</launch>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mobility_base_bringup</name>
+  <version>1.0.6</version>
+  <description>
+    Startup scripts and launch files for the Dataspeed Inc. Mobility Base
+  </description>
+
+  <license>BSD</license>
+  <author>Dataspeed Inc.</author>
+  <maintainer email="khallenbeck@dataspeedinc.com">Dataspeed Inc.</maintainer>
+  <url type="website">http://dataspeedinc.com</url>
+  <url type="repository">https://bitbucket.org/dataspeedinc/mobility_base_ros</url>
+  <url type="bugtracker">https://bitbucket.org/dataspeedinc/mobility_base_ros/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>roslaunch</exec_depend>
+
+  <!-- Mobility Base SDK -->
+  <exec_depend>mobility_base_core_msgs</exec_depend>
+  <exec_depend>mobility_base_description</exec_depend>
+  <exec_depend>mobility_base_driver</exec_depend>
+  <exec_depend>mobility_base_pointcloud_filter</exec_depend>
+  <exec_depend>mobility_base_tools</exec_depend>
+
+  <!-- Launch Depends -->
+  <exec_depend>nodelet</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>image_proc</exec_depend>
+  <exec_depend>laser_filters</exec_depend>
+
+  <!-- Accessory Depends -->
+  <exec_depend>usb_cam</exec_depend>
+  <exec_depend>urg_node</exec_depend>
+  <exec_depend>pepperl_fuchs_r2000</exec_depend>
+  <exec_depend>velodyne</exec_depend>
+
+  <!-- Test Depends -->
+  <test_depend>roslaunch</test_depend>
+
+</package>

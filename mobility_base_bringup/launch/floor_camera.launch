@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="framerate" default="$(optenv MB_FLOOR_CAMERA_FRAME_RATE 15.0)"/>
+  <arg name="exposure" default="$(optenv MB_FLOOR_CAMERA_EXPOSURE 14)"/>
+  <arg name="rectify" default="$(optenv MB_FLOOR_CAMERA_RECTIFY true)"/>
+
+  <group ns="/mobility_base">
+
+    <!-- Camera Driver -->
+    <node pkg="usb_cam" type="usb_cam_node" name="floor_camera" respawn="true" output="screen">
+      <param name="video_device" value="/dev/video0" />
+      <param name="framerate" value="$(arg framerate)" />
+      <param name="autoexposure" value="False" />
+      <param name="exposure" value="$(arg exposure)" />
+      <param name="image_width" value="640" />
+      <param name="image_height" value="480" />
+      <param name="pixel_format" value="yuvmono10" />
+      <param name="io_method" value="mmap" />
+      <param name="camera_name" value="floor_camera" />
+      <param name="camera_frame_id" value="/floor_camera_optical_frame" />
+      <param name="camera_info_url" value="file://$(env HOME)/.ros/camera_info/${NAME}.yaml" />
+    </node>
+
+    <!-- Image Proc (rectify) -->
+    <node if="$(arg rectify)" ns="floor_camera" pkg="image_proc" type="image_proc" name="image_proc" respawn="true" output="screen">
+    </node>
+
+  </group>
+
+</launch>

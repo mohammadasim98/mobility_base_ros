@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mobility_base</name>
+  <version>1.0.6</version>
+  <description>
+    Metapackage containing all of the SDK packages for the Mobility Base Robot from Dataspeed Inc.
+  </description>
+
+  <license>BSD</license>
+  <author>Dataspeed Inc.</author>
+  <maintainer email="khallenbeck@dataspeedinc.com">Dataspeed Inc.</maintainer>
+  <url type="website">http://dataspeedinc.com</url>
+  <url type="repository">https://bitbucket.org/dataspeedinc/mobility_base_ros</url>
+  <url type="bugtracker">https://bitbucket.org/dataspeedinc/mobility_base_ros/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>mobility_base_bringup</exec_depend>
+  <exec_depend>mobility_base_core_msgs</exec_depend>
+  <exec_depend>mobility_base_description</exec_depend>
+  <exec_depend>mobility_base_examples</exec_depend>
+  <exec_depend>mobility_base_pointcloud_filter</exec_depend>
+  <exec_depend>mobility_base_tools</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

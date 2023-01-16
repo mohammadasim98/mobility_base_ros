@@ -1,0 +1,28 @@
+scan_filter_chain:
+- name: post_rear_right
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: -2.45619449
+    upper_angle: -2.25619449
+- name: post_front_right
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: -0.885398163
+    upper_angle: -0.685398163
+- name: post_front_left
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: 0.685398163
+    upper_angle: 0.885398163
+- name: post_rear_left
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: 2.25619449
+    upper_angle: 2.45619449
+#- name: shadows
+#  type: laser_filters/ScanShadowsFilter
+#  params:
+#    min_angle: 10
+#    max_angle: 170
+#    neighbors: 4
+#    window: 1

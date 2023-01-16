@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group ns="/laser_rear_hokuyo">
+
+    <!-- Hokuyo Driver -->
+    <node pkg="urg_node" type="urg_node" name="urg_node" respawn="true" output="screen">
+      <param name="frame_id" value="/laser_rear_hokuyo" />
+      <param name="ip_address" value="$(optenv MB_LASER_REAR_HOKUYO_IP)" />
+      <param name="serial_port" value="$(optenv MB_LASER_REAR_HOKUYO_DEV /dev/ttyACM0)" />
+      <param name="calibrate_time" value="true" />
+    </node>
+
+  </group>
+
+</launch>

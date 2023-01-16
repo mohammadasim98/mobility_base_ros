@@ -1,0 +1,9 @@
+<library path="lib/libmobility_base_pointcloud_filter">
+  <class name="mobility_base_pointcloud_filter/PointCloudFilterNodelet"
+         type="mobility_base_pointcloud_filter::PointCloudFilterNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description> 
+      description
+    </description>
+  </class>
+</library>

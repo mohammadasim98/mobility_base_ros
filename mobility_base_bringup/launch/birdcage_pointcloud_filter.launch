@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ns" default="/laser_birdcage_vlp16"/>
+
+  <group ns="$(arg ns)">
+    <node pkg="mobility_base_pointcloud_filter" type="pointcloud_filter_node" name="filter" output="screen" respawn="true" >
+      <param name="width" value="0.439822972"/>
+    </node>
+  </group>
+
+</launch>
