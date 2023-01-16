@@ -1,6 +1,6 @@
 - git:
     local-name: mobility_base_ros
-    uri: https://bitbucket.org/DataspeedInc/mobility_base_ros
+    uri: https://github.com/mohammadasim98/mobility_base_simulator.git
     version: master
 - git:
     local-name: usb_cam
